@@ -15,7 +15,7 @@ Le groupe 6 avec sa connaissance des courses disponibles et le groupe 7 avec sa 
 
 ## Livrables
 
-- Interface web fonctionnelle *et responsive* de façon à être utilisée  aisément sur Mobile.
+- Interface web fonctionnelle **et responsive** de façon à être utilisée  aisément sur Mobile.
 - Rapport expliquant la démarche choisie pour ordonnancer la liste des courses
 
 ## Travail préparatoire
