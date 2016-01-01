@@ -20,3 +20,4 @@ Le groupe 6 avec sa connaissance des courses disponibles et le groupe 7 avec sa 
 
 ## Travail préparatoire
 
+- http://www.alsacreations.com/article/lire/1615-cest-quoi-le-responsive-web-design.html 
