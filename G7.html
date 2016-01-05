@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+	<h1 class="ui header">{{ titre }}</h1>
+
+	<script language='javascript'>
+             $(document).ready(function(){
+                $('.ui.accordion').accordion();
+             });
+	</script>
+
+	<div class="ui centered grid">
+		<div class="sixteen wide column">
+			<h2 class="ui header">Application Conducteur</h2>
+                 <h3 class="ui header">Voici notre application pour le conducteur. Vous trouverez ci-dessous toutes les parties effectués par les étudiants</h2>
+			<div class="ui styled accordion">
+			  <div class="title">
+			    <i class="dropdown icon"></i>
+			    Taches			    
+			  </div>
+			  <div class="content">
+			    <p class="transition hidden">
+					<a href='http://localhost:5000/Attribution'>Attribution</a>
+					<br><br>
+					<a href='http://localhost:5000/CarteDesBeauxGosses'>CarteDesBeauxGosses</a>
+					<br><br>
+					<a href='http://localhost:5000/Navigation'>Navigation</a>
+					<br><br>
+					<a href='http://localhost:5000/Statut'>Statut</a>
+			    </p>
+			  </div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
