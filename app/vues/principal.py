@@ -106,7 +106,7 @@ def Statut():
     
 @app.route('/Navigation')
 def Navigation():
-    return render_template('Navigation.html', titre='Navigation')
+    return render_template('conducteur/navigation.html', titre='Navigation')
     
 @app.route('/CarteDesBeauxGosses')
 def CarteDesBeauxGosses():
