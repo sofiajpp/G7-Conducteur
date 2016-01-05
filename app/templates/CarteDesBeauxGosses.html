@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+	<h1 class="ui header">{{ titre }}</h1>
+
+	<script language='javascript'>
+             $(document).ready(function(){
+                $('.ui.accordion').accordion();
+             });
+	</script>
+
+	<div class="ui centered grid">
+		<div class="sixteen wide column">
+                 <h2 class="ui header">Le but est d'afficher une carte</h2>
+                 <h5 class="ui header"><dd> - Afficher carte</h5>
+                 <h5 class="ui header"><dd> - Afficher position du conducteur</h5>
+                 <h5 class="ui header"><dd> - Peut-etre la position du client</h5>
+                 <h5 class="ui header"><dd> - Géolocaliser le conducteur</h5>
+                 <h5 class="ui header"><dd> - Remplir la base avec les nouvelles coordonnées</h5>
+		</div>
+	</div>
+
+{% endblock %}

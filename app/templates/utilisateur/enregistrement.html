@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+	<div class="ui formulaire-utilisateur center raised text container pink segment">
+		<!--div class="ui ui green segment"></div-->
+		<form class="ui form" action="/utilisateur/enregistrement" method="post">
+			<h4 class="ui dividing header">S'enregistrer</h4>
+	    	{{ m.render_field(form.prenom) }}
+	    	{{ m.render_field(form.nom) }}
+  			{{ m.render_field(form.telephone) }}
+	    	{{ m.render_field(form.email) }}
+	    	{{ m.render_field(form.ville) }}
+	    	{{ m.render_field(form.cp) }}
+	    	{{ m.render_field(form.adresse) }}
+	    	{{ m.render_field(form.numero) }}
+	    	{{ m.render_field(form.mdp) }}
+	    	{{ m.render_field(form.confirmation) }}
+		  	{{ form.csrf_token }}
+		  	<button class="ui primary button" type="submit">Valider</button>
+		</form>
+	</div>
+
+{% endblock %}

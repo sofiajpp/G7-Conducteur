@@ -1,23 +1,26 @@
-# Groupe 7 - Gestion du conducteur
+# Production
 
-## Objectifs
+Ce dossier contient l'application finale, celle qui doit marcher sans faille.
 
-- Ce groupe doit fournir une interface web interagissant avec les conducteurs de Taxi. Cette interface permettra :
-    - D’afficher la liste des courses disponibles.
-    - Permettre au conducteur de choisir une course et d’en obtenir la validation ou non.
-    - Le conducteur peut mettre à jour son statut (occupé, pause, libre, retour).
-    - Géolocalise le conducteur.
-- Ce groupe devra également fournir un soutien au groupe 9 afin de proposer une application androïd permettant de gérer l’ensemble des fonctions d’affichage developpées par ce groupe.
+## Architecture
 
-Le groupe 6 avec sa connaissance des courses disponibles et le groupe 7 avec sa connaissance des conducteurs pourront réfléchir ensemble à l’idée d’ordonnancement personnalisée.
+Blablabla.
 
-## À disposition
+## Utilisation
 
-## Livrables
+Il faut d'abord s'assurer que les valeurs dans ``config.py`` soient cohérentes, c'est à dire bien faire en sorte que le port et le mot de passe de PostgreSQL soient les mêmes que ceux de l'ordinateur d'où l'application est lancée. Si la base de données a déjà été créée elle peut être supprimée en lancant le script ``suppression.py``.
 
-- Interface web fonctionnelle **et responsive** de façon à être utilisée  aisément sur Mobile.
-- Rapport expliquant la démarche choisie pour ordonnancer la liste des courses
+```sh
+# Installer les librairies
+pip install -r requirements.txt
+# Créer la base de données
+python creation.py
+# Lancer le site web
+python run.py
+```
 
-## Travail préparatoire
+Ensuite il suffit de consulter l'URL ``localhost:5000`` dans le navigateur.
 
-- http://www.alsacreations.com/article/lire/1615-cest-quoi-le-responsive-web-design.html 
+## Heroku
+
+Se référer au dossier ``setup/``.

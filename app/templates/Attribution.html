@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+	<h1 class="ui header">{{ titre }}</h1>
+
+	<script language='javascript'>
+             $(document).ready(function(){
+                $('.ui.accordion').accordion();
+             });
+	</script>
+
+	<div class="ui centered grid">
+		<div class="sixteen wide column">
+                 <h2 class="ui header"><dd>Le but est de gérer l'attribution des courses au conducteur</h2>
+                 <h5 class="ui header"><dd> - Envoyer une pop-up au 1er conducteur</h5>
+                 <h5 class="ui header"><dd> - Enregistrer sa réponse et l'envoyer dans la base</h5>
+                 <h5 class="ui header"><dd> - Faire un timer pour ne pas attendre sa réponse plus de 2 minutes</h5>
+                 <h5 class="ui header"><dd> - Gérer le statut conducteur et le statut de la proposition (NR|Non|Oui|Attente)</h5>
+<table border="1">
+   <tr>
+      <th align="center">Proposition</th>
+   </tr>
+   <tr>
+      <td>IdProposition</td>
+   </tr>
+   <tr>
+      <td>IdCourse</td>
+   </tr>
+   <tr>
+      <td>IdConducteur</td>
+   </tr>
+   <tr>
+      <td>Ordre</td>
+   </tr>
+   <tr>
+      <td>Moment Proposition</td>
+   </tr>
+   <tr>
+      <td>Moment Reponse</td>
+   </tr>
+   <tr>
+      <td>Statut Proposition</td>
+   </tr>
+</table>
+		</div>
+
+	</div>
+
+{% endblock %}

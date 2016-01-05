@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+	<h1 class="ui header">{{ titre }}</h1>
+
+	<script language='javascript'>
+             $(document).ready(function(){
+                $('.ui.accordion').accordion();
+             });
+	</script>
+
+	<div class="ui centered grid">
+		<div class="sixteen wide column">
+                 <h2 class="ui header">Le but est de gérer le statut du conducteur</h2>
+                 <h5 class="ui header"><dd> - Créer un bouton avec plusieurs choix</h5>
+                 <h5 class="ui header"><dd> - Afficher le statut actuel du conducteur</h5>
+                 <h5 class="ui header"><dd> - Remplir la base avec le nouveau conducteur</h5>
+		</div>
+	</div>
+
+{% endblock %}

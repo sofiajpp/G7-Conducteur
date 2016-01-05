@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+	<h1 class="ui header">{{ titre }}</h1>
+
+	<script language='javascript'>
+             $(document).ready(function(){
+                $('.ui.accordion').accordion();
+             });
+	</script>
+
+	<div class="ui centered grid">
+		<div class="sixteen wide column">
+			<h2 class="ui header">Commandes API</h2>
+			<div class="ui styled accordion">
+			  <div class="title">
+			    <i class="dropdown icon"></i>
+			    Données utilisateurs au format JSON			    
+			  </div>
+			  <div class="content">
+			    <p class="transition hidden">
+					<a href='http://localhost:5000/api/utilisateurs'>localhost:5000/api/utilisateurs</a>
+			    </p>
+			  </div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

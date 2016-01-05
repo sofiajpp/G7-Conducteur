@@ -1,0 +1,69 @@
+{% extends "layout.html" %} 
+{% block head %} 
+	{{ super() }} 
+
+<script language='javascript'>
+ $(document).ready(function(){
+    $('.cookie.nag')
+      .nag({
+        key      : 'accepts-cookies',
+        value    : true
+      })
+    ;
+ });
+</script>
+
+<div class="ui inline cookie nag">
+  <span class="title">
+    En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de cookies.
+  </span>
+  <i class="close icon"></i>
+</div>
+
+{% endblock %} 
+
+{% block content %}
+
+<h1 class="ui header">{{ titre }}</h1>
+{% if current_user.is_authenticated %}
+    <h2 class="ui header">Bonjour {{ current_user.prenom }}!</h2> 
+	<h3 class="ui header">Utilisateur connecté.</h3> 
+{% else %}
+	<h3 class="ui header">Utilisateur non-connecté.</h3> 
+{% endif %}
+
+
+<div class="ui centered grid">
+    <div class="left floated ten wide column">
+        <form class="ui form" action="/index" method="POST">
+            <h4 class="ui pink dividing header">Coordonnées</h4>
+            <label>Adresse de départ</label>
+            {{ m.render_field(form.ville_dep, "Toulouse") }}
+            {{ m.render_field(form.cp_dep) }}    
+            {{ m.render_field(form.numero_dep) }}  
+            {{ m.render_field(form.adresse_dep) }}    
+            <label>Adresse d'arrivée</label>
+            {{ m.render_field(form.ville_arr) }}
+            {{ m.render_field(form.cp_arr) }}    
+            {{ m.render_field(form.numero_arr) }}  
+            {{ m.render_field(form.adresse_arr) }}      
+            {{ form.csrf_token }}
+            <button class="ui primary button" type="submit">Valider</button>
+        </form>
+    </div>
+    <div class="right floated six wide column">
+        <div class="ui card">
+            <div class="content">
+                <div class="header">CapitoleTAXI</div>
+                <div class="meta"><i class="phone square icon"></i>05 34 250 250</div>
+                <div class="description">
+                    <p>170 taxis, le plus grand groupe de Toulouse et Midi-Pyrénées</p>
+                </div>
+            </div>
+            <div class="extra content">
+                <i class="pink taxi icon"></i> 170 taxis
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

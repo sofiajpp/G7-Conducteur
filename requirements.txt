@@ -1,0 +1,15 @@
+flask
+flask-sqlalchemy
+geoalchemy2
+sqlalchemy-utils
+phonenumbers
+flask-wtf
+wtforms
+flask-login
+flask-mail
+itsdangerous
+flask-bcrypt
+flask-socketio
+flask-admin
+sure
+pytest

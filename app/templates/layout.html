@@ -1,0 +1,116 @@
+<!-- HTML macros -->
+{% import "macros.html" as m %}
+<!DOCTYPE html>
+<html lang="en">
+	<div id="container">
+   		<div id="header">
+   			{% block head %}
+				<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/>
+				<meta charset="UTF-8">
+				<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+				<!-- jQuery -->
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+				<!-- Semantic principal -->
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+			    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.7/components/form.min.js"></script>
+				<!-- Semantic reset -->
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/components/reset.min.css"/>
+				<!-- Semantic menu -->
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/components/menu.min.css"/>
+			    <!-- Semantic listes -->
+			    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/components/list.min.css"></script>
+				<!-- Semantic card -->
+			    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/components/card.min.css"></script>
+			    <!-- Semantic grid -->
+			    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/components/grid.min.css"></script>
+				<!-- Semantic accordion -->
+			    <link rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/components/accordion.min.css"></link>
+			    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/components/accordion.min.js"></script>
+				<!-- Semantic icons -->
+			    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/components/icon.min.css"></script>
+			    <!-- Semantic modal -->
+			    <link rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/components/accordion.min.css"></link>
+			    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/components/modal.min.js"></script>
+			    <!-- Semantic form -->
+			    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.7/components/form.min.css"/>
+			    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+				<!-- Semantic tab -->
+			    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.7/components/tab.min.css"/>
+			    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.7/components/tab.min.js"></script>
+				<!-- Semantic cookie nab -->
+			    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.7/components/nag.min.css"/>
+			    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.7/components/nag.min.js"></script>			 
+			    <!-- CSS slider -->
+				<script src="{{ url_for('static', filename='js/slides/ism-2.1.js') }}"></script>
+				<link rel="stylesheet" href="{{ url_for('static', filename='css/slides.css') }}">
+
+				<!-- CSS maison -->
+				<link rel="stylesheet" href="{{ url_for('static', filename='css/maison.css') }}">
+				<!-- Titre de l'onglet de navigation -->
+				<title>{{ titre }}</title>
+				<!-- Barre de navigation -->
+				<div class="ui attached inverted menu grid">
+				  	{{ m.nav_link('index', 'Réserver un taxi') }}
+				  	{{ m.nav_link('carte', 'Carte') }}
+					{{ m.nav_link('informations', 'Informations') }}
+					{{ m.nav_link('tarifs', 'Tarifs') }}
+					{{ m.nav_link('faq', 'FAQ') }}
+                             {{ m.nav_link('G7', 'G7') }}
+					{{ m.nav_link('contact', 'Contact') }}
+				 	<div class="right menu">
+				 		<!-- Utilisateur connecté -->
+				      	{% if current_user.is_authenticated %}
+				      		<div class="item">
+				      			<i class="large phone pink square icon"></i>05 34 250 250
+				      		</div>
+				      		<div class="item">
+				        		<a class="ui primary button" href="/utilisateur/compte"><i class="settings icon"></i>{{ current_user.prenom }} {{ current_user.nom }}</a>
+				    		</div>
+				    		<div class="item">
+				        		<a class="ui default button" href="/utilisateur/deconnexion"><i class="sign out icon"></i>Se déconnecter</a>
+				    		</div>
+
+			          	<!-- Utilisateur non-connecté -->
+			          	{% else %}
+			          		<div class="item">
+				      			<i class="large phone pink square icon"></i>05 34 250 250
+				      		</div>
+			          		<div class="item">
+				        		<a class="ui primary button" href="/utilisateur/connexion"><i class="sign in icon"></i>Se connecter</a>
+				    		</div>
+				    		<div class="item">
+				        		<a class="ui default button" href="/utilisateur/enregistrement"><i class="add user icon"></i>S'enregistrer</a>
+				    		</div>
+						{% endif %}
+			  		</div>
+				</div>
+
+			{% endblock %}
+
+   		<!-- Message flashing -->
+		{% with messages = get_flashed_messages(with_categories=true) %}
+		  	{% if messages %}
+		    	<ul>
+		    		{% for categorie, message in messages %}
+		      			<li class="ui {{ categorie }} message flash">{{ message }}</li>
+		    		{% endfor %}
+		    	</ul>
+		  	{% endif %}
+		{% endwith %}
+   		<div id="body" class="body">
+   			{% block content %}{% endblock %}
+   		</div>
+		<div id="footer">
+			<div class="ui divider"></div>
+	    		<div class="ui divided horizontal footer link list">
+			      	<div class="item">
+			        	TaxiSID
+			      	</div>
+			      	<div class="item">
+			        	<a href="https://github.com/TaxiSID/"><i class="github icon"></i></a>
+			      	</div>
+	    		</div>
+	  		</div>
+		</div>
+	</div>
+</html>

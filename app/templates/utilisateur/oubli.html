@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="ui formulaire-utilisateur center raised very padded text container pink segment">
+		<form class="ui form" action="/utilisateur/oubli" method="POST">
+			<h4 class="ui dividing header">Entrez votre adresse email pour que nous puissions vous envoyer un lien de réinitialisation de votre mot de passe</h4>
+			{{ m.render_field(form.email) }}
+		  	{{ form.csrf_token }}
+		  	<button class="ui primary button" type="submit">Valider</button>
+		</form>
+	</div>
+
+{% endblock %}
